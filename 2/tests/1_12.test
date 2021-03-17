@@ -1,0 +1,20 @@
+sortby: cost
+drugs:
+  - drugstore_number: 1
+    name: asd
+    count: 10
+    cost: 1000
+    receipt_date: [2003, 10, 12]
+    shelf_life: 10
+  - drugstore_number: 2
+    name: dsa
+    count: 101
+    cost: 100000
+    receipt_date: [2004, 10, 12]
+    shelf_life: 100
+  - drugstore_number: 3
+    name: aaa
+    count: 100
+    cost: 100
+    receipt_date: [2003, 9, 12]
+    shelf_life: 1000
