@@ -1,6 +1,5 @@
 from datetime import date
 from typing import List
-import yaml
 
 
 class Drug:
@@ -28,15 +27,6 @@ shelf_life:{self.shelf_life}"""
         return string
 
 
-def read_from_yaml(filename: str):
-    with open(filename, 'r') as f:
-        data = yaml.safe_load(f)
-        drugs = []
-        for params in data["drugs"]:
-            drugs.append(Drug(**params))
-        return (data["sortby"], drugs)
-
-
 def sortby(field: str, collection: List[Drug]) -> List[Drug]:
     return sorted(collection, key=lambda drug: getattr(drug, field))
 
@@ -47,6 +37,5 @@ def find(field: str, collection: List[Drug], value) -> int:
             return idx
 
 
-def main(filename: str):
-    sort_by, drug_list = read_from_yaml(filename)
-    return [x.getattr(sort_by) for x in sortby(sort_by, drug_list)]
+def main(drug_list: List[Drug], sort_by: str):
+    return sortby(sort_by, drug_list)
