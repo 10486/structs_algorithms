@@ -9,6 +9,7 @@ def main(string: str):
     for i in a:
         if a[i] == 1:
             arr.append(i)
+    return arr
 # возможно я не понял задания и оно выглядит так
 # for i in set(string):
 #   arr.append(i)
