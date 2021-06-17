@@ -25,6 +25,15 @@ class SearchBinaryTree:
         tmp = [node.value]
         return SearchBinaryTree._check(node.left) + tmp + SearchBinaryTree._check(node.right)
 
+    def traverse(self):
+        return [self._traverse(self.root.left) + [self.root] + self._traverse(self.root.right)]
+
+    @staticmethod
+    def _traverse(node):
+        if node is None:
+            return []
+        return [SearchBinaryTree._travers(node.left) + [node] + SearchBinaryTree._traverse(node.right)]
+
     def append(self, value):
         self._append(self.root, value)
 
@@ -78,19 +87,19 @@ class SearchBinaryTree:
             self.root = tmp
         # когда нет дочерних элементов
         elif node.left is None and node.right is None:
-            if node.parent.data > node.data:
+            if node.parent.value > node.value:
                 node.parent.left = None
             else:
                 node.parent.right = None
         # когда только правый дочерний элемент
         elif node.left is None:
-            if node.parent.data > node.data:
+            if node.parent.value > node.value:
                 node.parent.left = node.right
             else:
                 node.parent.right = node.right
         # когда только левый дочерний элемент
         elif node.right is None:
-            if node.parent.data > node.data:
+            if node.parent.value > node.value:
                 node.parent.left = node.left
             else:
                 node.parent.right = node.left
@@ -102,14 +111,13 @@ class SearchBinaryTree:
             tmp.parent.left = tmp.right
             tmp.right = node.right
             tmp.left = node.left
-            if node.parent.data > node.data:
+            if node.parent.value > node.value:
                 node.parent.left = tmp
             else:
                 node.parent.right = tmp
 
 
-tree = SearchBinaryTree([2, 1, 5, -1, 10, 15, 9])
-print(tree.check())
-tree.delete(2)
-print(tree.search(2))
-print(tree.check())
+def main(numbers, key):
+    tree = SearchBinaryTree(numbers)
+    tree.delete(key)
+    return

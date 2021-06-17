@@ -17,3 +17,4 @@ def bubble(array):
                 buff = array[j]
                 array[j] = array[j+1]
                 array[j+1] = buff
+    return array

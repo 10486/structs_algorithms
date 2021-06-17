@@ -26,6 +26,9 @@ class Hashtable:
             if key == k:
                 return v
 
+    def get_collection(self):
+        return str(self.__collection)
+
     def delete(self, key):
         hash_key = hash(key) % self.size
         key_exists = False

@@ -10,7 +10,7 @@ def prefix(string):
     return p
 
 
-def kmp(string, text):
+def main(string, text):
     index = -1
     p = prefix(string)
     j = 0
@@ -23,6 +23,3 @@ def kmp(string, text):
             index = i - len(string) + 1
             break
     return index
-
-
-print(kmp("dsa", "asdasddsad"))
