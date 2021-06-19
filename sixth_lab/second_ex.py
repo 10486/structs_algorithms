@@ -25,15 +25,6 @@ class SearchBinaryTree:
         tmp = [node.value]
         return SearchBinaryTree._check(node.left) + tmp + SearchBinaryTree._check(node.right)
 
-    def traverse(self):
-        return [self._traverse(self.root.left) + [self.root] + self._traverse(self.root.right)]
-
-    @staticmethod
-    def _traverse(node):
-        if node is None:
-            return []
-        return [SearchBinaryTree._travers(node.left) + [node] + SearchBinaryTree._traverse(node.right)]
-
     def append(self, value):
         self._append(self.root, value)
 
@@ -120,4 +111,4 @@ class SearchBinaryTree:
 def main(numbers, key):
     tree = SearchBinaryTree(numbers)
     tree.delete(key)
-    return
+    return tree.check()
